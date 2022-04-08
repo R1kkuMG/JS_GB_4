@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание.
 
 Необходимо создать функцию getDigitsOfNumber, которая принимает целое
@@ -28,10 +30,31 @@
 Обратите внимание на слова "от 0 до 1000", это означает диапазон [0, 999], что
 можно прочитать как "от нуля до 999 включительно".
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    /**
+     * Функция, которая принимает целое положительное число в диапазоне от 0 
+     * до 1000 и возвращает обычный объект с разрядами числа.
+     * @param {number} num - целое положительное число от 0 до 999.
+     * @returns {object} Объект с разрядами числа или сообщение об ошибке.
+     */
+
+    function getDigitsOfNumber(num) {
+      if (!Number.isInteger || num < 0 || num > 999) {
+        console.error('Введеное число или символ не входят в диапазон [0, 999].');
+        return {};
+      }
+
+      return {
+        units: num % 10,
+        dozens: Math.floor(num / 10 % 10),
+        hundreds: Math.floor(num / 100)
+      };
+    }
+
+    console.log(getDigitsOfNumber(456));
+  </script>
 </body>
+
 </html>
